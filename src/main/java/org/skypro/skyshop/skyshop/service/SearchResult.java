@@ -1,8 +1,8 @@
-package org.skypro.skyshop.service;
+package org.skypro.skyshop.skyshop.service;
 
-import org.skypro.skyshop.model.article.Article;
-import org.skypro.skyshop.model.product.Product;
-import org.skypro.skyshop.model.search.Searchable;
+import org.skypro.skyshop.skyshop.model.article.Article;
+import org.skypro.skyshop.skyshop.model.product.Product;
+import org.skypro.skyshop.skyshop.model.search.Searchable;
 
 
 public class SearchResult {
@@ -14,6 +14,18 @@ public class SearchResult {
         this.id = id;
         this.name = name;
         this.contentType = contentType;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getContentType() {
+        return contentType;
     }
 
     public static SearchResult fromSearchable(Searchable item) {

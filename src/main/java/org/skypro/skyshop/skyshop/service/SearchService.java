@@ -1,4 +1,4 @@
-package org.skypro.skyshop.service;
+package org.skypro.skyshop.skyshop.service;
 
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ public class SearchService {
         }
 
         return storageService.getAllSearchable().stream()
-                .filter(item -> item.getSearchTerm().contains(pattern.toLowerCase()))
+                .filter(item -> item.getSearchTerm().toLowerCase().contains(pattern.toLowerCase()))
                 .map(SearchResult::fromSearchable)
                 .collect(Collectors.toList());
     }

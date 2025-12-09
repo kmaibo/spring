@@ -1,6 +1,9 @@
-package org.skypro.skyshop.model.article;
+package org.skypro.skyshop.skyshop.model.article;
 
-import org.skypro.skyshop.model.search.Searchable;
+
+
+
+import org.skypro.skyshop.skyshop.model.search.Searchable;
 
 import java.util.Objects;
 import java.util.UUID;
