@@ -22,21 +22,14 @@ public class BasketService {
     }
 
     public void addProductToBasket(UUID id) {
-        Optional<Product> product = storageService.getProductById(id);
-        if (product.isEmpty()) {
-            throw new IllegalArgumentException("Продукт не найден");
-        }
-        basket.addBasket(id);
+        Product product = storageService.getProductById(id);
     }
 
     public UserBasket getUserBasket() {
         return new UserBasket(
                 basket.getBasket().entrySet().stream()
                         .map(entry -> {
-                            Product product = storageService.getProductById(entry.getKey())
-                                    .orElseThrow(() -> new IllegalArgumentException(
-                                            "Продукт не найден в хранилище: " + entry.getKey()
-                                    ));
+                            Product product = storageService.getProductById(entry.getKey());
                             return new BasketItem(product, entry.getValue());
                         })
                         .collect(Collectors.toList())
