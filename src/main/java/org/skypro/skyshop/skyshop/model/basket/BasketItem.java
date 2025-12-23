@@ -4,4 +4,3 @@ import org.skypro.skyshop.skyshop.model.product.Product;
 
     public record BasketItem(Product product, int quantity) {
     }
-

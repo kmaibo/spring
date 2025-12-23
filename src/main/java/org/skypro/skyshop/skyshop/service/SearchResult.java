@@ -38,4 +38,3 @@ public class SearchResult {
         return new SearchResult(item.getId().toString(), name, contentType);
     }
 }
-

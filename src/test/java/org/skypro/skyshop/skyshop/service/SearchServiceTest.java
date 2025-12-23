@@ -38,7 +38,6 @@ public class SearchServiceTest {
         verify(storageService).getAllSearchable();
     }
 
-
     @Test
     void searchWhenProductsExistButNoMatch() {
         List<Searchable> products = List.of(

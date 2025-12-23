@@ -33,10 +33,8 @@ class BasketServiceTest {
 
     @BeforeEach
     void setUp() {
-//        SimpleProduct bread = new SimpleProduct("Хлеб", 50, UUID.randomUUID());
         MockitoAnnotations.openMocks(this);
     }
-
 
     @Test
     void addNonExistingProduct_throwsException() {
