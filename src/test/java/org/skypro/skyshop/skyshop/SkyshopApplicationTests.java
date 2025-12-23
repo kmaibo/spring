@@ -1,4 +1,4 @@
-package org.skypro.skyshop;
+package org.skypro.skyshop.skyshop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
