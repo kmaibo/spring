@@ -1,12 +1,12 @@
 package org.skypro.skyshop.skyshop.service;
 
+import org.skypro.skyshop.skyshop.exception.NoSuchProductException;
 import org.skypro.skyshop.skyshop.model.basket.BasketItem;
 import org.skypro.skyshop.skyshop.model.basket.ProductBasket;
 import org.skypro.skyshop.skyshop.model.basket.UserBasket;
 import org.skypro.skyshop.skyshop.model.product.Product;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -23,6 +23,12 @@ public class BasketService {
 
     public void addProductToBasket(UUID id) {
         Product product = storageService.getProductById(id);
+        if (product == null) {
+            throw new NoSuchProductException("Продукт с id " + id + " не найден");
+        }
+
+
+        basket.addBasket(product.getId());
     }
 
     public UserBasket getUserBasket() {
@@ -35,6 +41,5 @@ public class BasketService {
                         .collect(Collectors.toList())
         );
     }
-
 
 }

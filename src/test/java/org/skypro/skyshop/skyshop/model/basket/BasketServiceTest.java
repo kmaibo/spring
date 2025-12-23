@@ -17,10 +17,11 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
+
 class BasketServiceTest {
 
     @Mock
-    private ProductBasket basket;
+    private ProductBasket productBasket;
 
     @Mock
     private StorageService storageService;
@@ -54,12 +55,13 @@ class BasketServiceTest {
 
         basketService.addProductToBasket(productId);
 
-        Mockito.verify(basketService).addProductToBasket(productId);
+        Mockito.verify(productBasket).addBasket(productId);
+
     }
 
     @Test
     void getUserBasket_emptyBasket_returnsEmptyUserBasket() {
-        Mockito.when(basket.getBasket())
+        Mockito.when(productBasket.getBasket())
                 .thenReturn(Collections.emptyMap());
 
         UserBasket userBasket = basketService.getUserBasket();
@@ -73,7 +75,7 @@ class BasketServiceTest {
 
         SimpleProduct bread = new SimpleProduct("Хлеб", 50,UUID.randomUUID());
 
-        Mockito.when(basket.getBasket())
+        Mockito.when(productBasket.getBasket())
                 .thenReturn(Map.of(productId, 2));
 
         Mockito.when(storageService.getProductById(productId))
